@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoadingPage</title>
+    <link rel="stylesheet" href="../loading.css">
+</head>
+
+<body>
+    <div class="ring">Loading
+        <span></span>
+    </div>
+
+{{!-- script start --}}
+<script>
+    window.onload = setTimeout(()=>{
+      window.location.href = "/home";
+    },3000);
+  </script>
+  
+</body>
+</html>

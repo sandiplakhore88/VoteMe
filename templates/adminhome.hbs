@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adminhome</title>
+    <link rel="stylesheet" href="../adminhome.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img class="logo-icon" src="https://cdn-icons-png.flaticon.com/128/2633/2633863.png" />
+                <h1>VoteMe</h1>
+            </div>
+        </nav>
+    </header>
+    <!-- main for voter -->
+    <main class="voter">
+        <h3>VOTER DETAILS</h3>
+        <div class="voter-main">
+            <section class="show-one">
+                <div class="voter-card">
+                    <form action="/voterSearch" method="post">
+                        <div class="voter-search">
+                            <input type="search" placeholder="Search by id.." id="searchId" name="voter-search" />
+                            <button type="submit" class="searchVoter">SEARCH</button>
+                        </div>
+                        <div class="voter-data">
+                            <div>
+                                <img src="" alt="Loading">
+                            </div>
+                            <div>
+                                <label for="votername">Name:</label>
+                                <input type="text" name="votername" />
+                            </div>
+                            <div>
+                                <label for="voterid">ID:</label>
+                                <input type="text" name="voterid" />
+                            </div>
+                            <div>
+                                <label for="voterbrach">Branch:</label>
+                                <input type="text" name="voterbrach" />
+                            </div>
+                            <div>
+                                <label for="voterclass">Class:</label>
+                                <input type="text" name="voterclass" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+            <section class="show-all">
+                <div class="voter-list">
+                    <table class="voter-list-table">
+                        <tbody>
+                            <tr class="table-head">
+                                <td>Voter ID</td>
+                                <td>Voter Name</td>
+                                <td>Voter Branch</td>
+                                <td>Voter Class</td>
+                            </tr>
+                            {{#if response}}
+                            {{#each response}}
+                            <tr>
+                                <td>{{this.vid}}</td>
+                                <td>{{this.vname}}</td>
+                                <td>{{this.vbranch}}</td>
+                                <td>{{this.vclass}}</td>
+                            </tr>
+                            {{/each}}
+                            {{else}}
+                            <p>No data available.</p>
+                            {{/if}}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <span>
+            Created By: <a href="https://sandiplakhore88.github.io/MyPortfolio/">SandipLakhore</a>
+            | © 2023 All right researve.
+        </span>
+    </footer>
+
+    {{!==== script start ====}}
+    
+
+    <script>
+        //<==== find voter on search button click ====>
+
+        async function getVoter(){
+            const voterId = document.querySelector("#searchId").value;
+            if(!voterId){
+                alert("Please enter id");
+                return;
+            }
+
+            const response = await fetch(`/voterSearch?vid=${voterId}`);
+            const data = await response.json();
+            
+            if(data.error !== "Voter not found"){
+                document.querySelector(`input[name="votername"]`).value = data.vname;
+                document.querySelector(`input[name="voterid"]`).value = data.vid;
+                document.querySelector(`input[name="voterbrach"]`).value = data.vbranch;
+                document.querySelector(`input[name="voterclass"]`).value = data.vclass;
+            }else{
+                alert("Voter not found");
+            }
+        }
+
+        document.querySelector(".searchVoter").addEventListener("click",(event)=>{
+            event.preventDefault();
+            getVoter();
+        });
+    </script>
+  
+</body>
+
+</html>

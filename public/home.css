@@ -1,0 +1,125 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #f2f2f2;
+    overflow-y: auto;
+}
+
+header{
+    color:#fff;
+    background: crimson;
+    position: sticky;
+    top:0;
+}
+.navbar .logo{
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar .logo .logo-icon{
+    width: 40px;
+    margin: 10px 10px 10px 30px;
+}
+
+.navbar .logo h1{
+    margin-top: 12px;
+    font-size: 35px;
+    letter-spacing: 2px;
+}
+
+.relevent-page{
+    display: flex;
+    background: url("../images/home-image2.jpg") no-repeat center ;
+    height: 100vh;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 500px;
+}
+
+.admin-voter{
+    width: 100%;
+    height: 90vh;
+    padding: 45px 15px 45px 15px;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+.admin-page, .voter-page{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-page .admin-icon, .voter-page .voter-icon{
+    background: #fff;
+    width: 102px;
+    height: 102px;
+    border: 5px solid crimson;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.admin-page .admin-icon img, .voter-page .voter-icon img{
+    width: 88px;
+    height: 100px;
+    object-fit:fill;
+    margin: 2px;
+}
+
+.admin-voter h3{
+    margin-top: 10px;
+    letter-spacing: 1.5px;
+    color: crimson;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+button{
+    color: #fff;
+    background: crimson;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover{
+    color: crimson;
+    background: #fff;
+    border-color: crimson;
+}
+
+
+
+.footer{
+    color:#fff;
+    background: crimson;
+    position: sticky;
+    bottom:0;
+    padding: 10px 10px 10px 30px;
+}
+
+.footer a{
+    color:blue;
+}
+
+
+
+
+/*  responsive media query */
+
+@media(max-width:640px){
+    .admin-voter{
+        flex-direction: column;
+    }
+}

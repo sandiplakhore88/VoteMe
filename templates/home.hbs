@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="../home.css">
+    <title>Home</title>
+</head>
+
+<body>
+    <!-- header start  -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img class="logo-icon" src="https://cdn-icons-png.flaticon.com/128/2633/2633863.png"/>
+                <h1>VoteMe</h1>
+            </div>
+        </nav>
+    </header>
+    <!-- header end -->
+
+    <!-- main container start -->
+    <main class="container">
+        <!-- display images -->
+        <section class="relevent-page">
+
+        </section>
+        <!-- display admin and voter -->
+        <section class="admin-voter">
+            <div class="admin-page">
+                <div class="admin-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/128/3048/3048122.png" alt="Loading">
+                </div>
+                <h3>ADMIN LOGIN</h3>
+                <button onclick="goToAdminLogin()">CLICK HERE &rarr;</button>
+            </div>
+            <div class="voter-page">
+                <div class="voter-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/128/5091/5091619.png" alt="Loading" >
+                </div>
+                <h3>VOTER LOGIN</h3>
+                <button onclick="goToVoterLogin()">CLICK HERE &rarr;</button>
+            </div>
+        </section>
+    </main>
+    <!-- main container end -->
+
+    <!-- footer start -->
+    <footer class="footer">
+        <span>
+            Created By: <a href="https://sandiplakhore88.github.io/MyPortfolio/">SandipLakhore</a>
+            | © 2023 All right researve.
+        </span>
+    </footer>
+    <!-- footer end -->
+
+
+
+    <!-- script for rendering -->
+    <script>
+
+        // <====== function for render voter admin page when button click ======>
+        function goToAdminLogin() {
+            window.location.href = "/adminlogin"; 
+        }
+
+        // <====== function for render voter login page when button click ======>
+        function goToVoterLogin() {
+            window.location.href = "/voterlogin"; 
+        }
+
+    </script>
+</body>
+</html>
