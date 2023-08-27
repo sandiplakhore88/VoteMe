@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require('express');
 const path = require('path');
-const { adminCollection, voterCollection, vDetailCollection } = require("./src/mongoosedb");
+const { adminCollection, vDetailCollection } = require("./src/mongoosedb");
 
 // <====== set path for static element ======>
 const templatePath = path.join(__dirname, "./templates");
@@ -58,15 +58,16 @@ app.get("/adminhome", async (req, res) => {
 });
 
 // <==== set route for voterhome + add some loging functionallity ====>
-app.get("/voterhome", (req,res)=>{
-    try{
-        if(req.headers.cookie){
-            return(res.render("voterhome"));
-        }else{
-            return(res.redirect("voterlogin"));
+app.get("/voterhome", (req, res) => {
+    try {
+        if (req.headers.cookie) {
+            const vName = req.headers.cookie.replace("voterRemember=","").replace("%20","");
+            return (res.render("voterhome",{vName}));
+        } else {
+            return (res.redirect("voterlogin"));
         }
     }
-    catch(err){
+    catch (err) {
         return (res.redirect("voterlogin"));
     }
 })
@@ -99,12 +100,12 @@ app.post("/adminlogin", async (req, res) => {
 app.post("/voterlogin", async (req, res) => {
     const { username, password } = req.body;
     try {
-        const voterData = await voterCollection.findOne({ username: username });
+        const voterData = await vDetailCollection.findOne({ vname: username });
         if (!voterData) {
             return res.render("voterlogin", { errorMessage: 'Invalid username. Please try again.' })
         }
-        if (voterData.password === password) {
-            res.cookie('voterRemember',voterData.username,{maxAge: 2 * 60 * 1000 });
+        if (voterData.vpassword === password) {
+            res.cookie('voterRemember', voterData.vname, { maxAge: 2 * 60 * 1000 });
             return res.redirect("voterhome");
         }
         else {
