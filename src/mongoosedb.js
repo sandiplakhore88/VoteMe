@@ -62,6 +62,10 @@ const voterDetailSchema = new mongoose.Schema({
     vclass: {
         type: String,
         required: true
+    },
+    vpassword:{
+        type: String,
+        required: true
     }
 });
 const vDetailCollection = mongoose.model("voterdetails",voterDetailSchema);
