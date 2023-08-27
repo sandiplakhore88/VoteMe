@@ -32,17 +32,17 @@ const adminCollection = mongoose.model("admins", adminSchema);
 
 
 // <====== setting Schema and model for voter login ======>
-const voterSchema = new mongoose.Schema({
-    username: {
-        type: String,
-        required: true
-    },
-    password: {
-        type: String,
-        required: true
-    }
-});
-const voterCollection = mongoose.model("voters", voterSchema);
+// const voterSchema = new mongoose.Schema({
+//     username: {
+//         type: String,
+//         required: true
+//     },
+//     password: {
+//         type: String,
+//         required: true
+//     }
+// });
+// const voterCollection = mongoose.model("voters", voterSchema);
 
 
 // <====== setting Schema and model for voter details ======>
@@ -72,6 +72,6 @@ const vDetailCollection = mongoose.model("voterdetails",voterDetailSchema);
 
 
 // <====== export models ======>
-module.exports = { adminCollection, voterCollection, vDetailCollection };
+module.exports = { adminCollection, vDetailCollection };
 
 
