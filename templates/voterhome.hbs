@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/2633/2633863.png"/>
-    <title>voterhome</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/128/2633/2633863.png" />
+    <title>adminhome</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <link rel="stylesheet" href="../voterhome.css">
 </head>
@@ -14,10 +14,17 @@
 <body>
     <header>
         <nav class="navbar">
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
             <div class="logo">
                 <img class="logo-icon" src="https://cdn-icons-png.flaticon.com/128/2633/2633863.png" alt="Logo" />
                 <h1>VoteMe</h1>
             </div>
+            <ul>
+                <li>Welcome: {{vName}}</li>
+            </ul>
         </nav>
     </header>
     <main class="candidate">
@@ -129,38 +136,39 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 
-  <!-- Initialize Swiper -->
-  <script>try{
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 1,
-      centeredSlides: false,
-      slidesPerGroupSkip: 1,
-      grabCursor: true,
-      keyboard: {
-        enabled: true,
-      },
-      breakpoints: {
-        769: {
-          slidesPerView: 2,
-          slidesPerGroup: 2,
-        },
-      },
-      scrollbar: {
-        el: ".swiper-scrollbar",
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-    });}
-    catch(err){
-        console.log(err.message);
-    }
-  </script>
+    <!-- Initialize Swiper -->
+    <script>try {
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: 1,
+                centeredSlides: false,
+                slidesPerGroupSkip: 1,
+                grabCursor: true,
+                keyboard: {
+                    enabled: true,
+                },
+                breakpoints: {
+                    769: {
+                        slidesPerView: 2,
+                        slidesPerGroup: 2,
+                    },
+                },
+                scrollbar: {
+                    el: ".swiper-scrollbar",
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+        }
+        catch (err) {
+            console.log(err.message);
+        }
+    </script>
 
 </body>
 
