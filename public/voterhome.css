@@ -1,204 +1,236 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f2f2f2;
+}
+
+/* header styling */
+header {
+  color: #fff;
+  background: crimson;
+  position: sticky;
+  top: 0;
+  height: 7vh;
+}
+
+.navbar .logo {
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar .logo .logo-icon {
+  width: 60px;
+  height: 60px;
+  padding: 5px 10px 22px 10px;
+}
+
+.navbar .logo h1 {
+  margin-top: 5px;
+  font-size: 32px;
+  letter-spacing: 2px;
+}
+
+ul {
+  
+  position: fixed;
+  top: 0;
+  right: 34px;
+}
+
+li {
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+
+.checkbtn {
+  font-size: 30px;
+  color: #fff;
+  float: right;
+  margin-top: 5px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+
+#check {
+  display: none;
+}
+
+
+/* voter main styling */
+.candidate {
+  width: 100%;
+  height: 88vh;
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+}
+
+.candidate .card .image {
+  height: 140px;
+  width: 140px;
+  border-radius: 50%;
+  padding: 3px;
+  background: rgb(156, 13, 42);
+}
+
+.candidate .card .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #fff;
+}
+
+.card {
+  width: 260px;
+  position: relative;
+  background: #fff;
+  border-radius: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 3px;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  height: 45%;
+  width: 100%;
+  background: crimson;
+  border-radius: 20px 20px 0 0;
+
+}
+
+.card .card-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
+  position: relative;
+  z-index: 100;
+}
+
+.card .media-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.card .media-icon i {
+  color: #fff;
+  margin-top: 5px;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card .media-icon i:hover {
+  opacity: 1;
+}
+
+.card .name-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  color: #333;
+}
+
+.card .name-div .name {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.card .button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.card .button button {
+  background: crimson;
+  outline: none;
+  border: none;
+  padding: 8px 22px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #f2f2f2;
+  cursor: pointer;
+
+}
+
+.button button:hover {
+  outline: 2px solid crimson;
+  background: #f2f2f2;
+  color: crimson;
+}
+
+
+.swiper {
+  width: 950px;
+}
+
+
+
+/* footer styling */
+.footer {
+  width: 100%;
+  color: #fff;
+  background: crimson;
+  position: sticky;
+  bottom: 0;
+  padding: 10px 10px 10px 30px;
+  height: 5vh;
+}
+
+.footer a {
+  color: blue;
+}
+
+/* media query for responsiveness */
+@media (max-width: 760px) {
+
+  /* hamburger */
+  .checkbtn {
+    display: block;
   }
 
-  body{
-    background: #f2f2f2;
-  }
-  
-  /* header styling */
-  header {
-    color: #fff;
-    background: crimson;
-    position: sticky;
-    top: 0;
-    height: 7vh;
-  }
-  
-  .navbar .logo {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .navbar .logo .logo-icon {
-    width: 60px;
-    height: 60px;
-    padding: 5px 10px 22px 10px;
-  }
-  
-  .navbar .logo h1 {
-    margin-top: 5px;
-    font-size: 32px;
-    letter-spacing: 2px;
-  }
-  
-  /* voter main styling */
-  .candidate {
+  ul {
+    position: fixed;
     width: 100%;
-    height: 88vh;
-    display: flex;
-    /* flex-direction: column; */
-    justify-content: center;
-    align-items: center;
+    height: 100vh;
+    background: #d093a2;
+    top: -100%;
+    right: 0;
+    transition: all 0.5s;
   }
 
-  .candidate .card .image{
-    height: 140px;
-    width: 140px;
-    border-radius: 50%;
-    padding: 3px;
-    background: rgb(156, 13, 42);
-  }
-
-  .candidate .card .image img{
+  #check:checked~ul {
+    top: 44px;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 3px solid #fff;
+    height: 50px;
+    z-index: -10000;
   }
-
-  .card{
-    width: 260px;
-    position: relative;
-    background: #fff;
-    border-radius: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-right: 3px;
-  }
-
-  .card::before{
-    content: '';
-    position: absolute;
-    height: 45%;
-    width: 100%;
-    background: crimson;
-    border-radius: 20px 20px 0 0;
-
-  }
-
-  .card .card-content{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    padding: 30px;
-    position: relative;
-    z-index: 100;
-  }
-
-  .card .media-icon{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    top:10px;
-    right: 10px;
-  }
-
-  .card .media-icon i{
-    color: #fff;
-    margin-top: 5px;
-    opacity: 0.6;
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-
-  .card .media-icon i:hover{
-    opacity: 1;
-  }
-
-  .card .name-div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
-    color: #333;
-  }
-
-  .card .name-div .name{
-    font-size: 20px;
-    font-weight: bold;
-  }
-
-  .card .button{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .card .button button{
-    background: crimson;
-    outline: none;
-    border: none;
-    padding: 8px 22px;
-    border-radius: 16px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #f2f2f2;
-    cursor: pointer;
-    
-  }
-
-  .button button:hover{
-    outline: 2px solid crimson;
-    background: #f2f2f2;
-    color: crimson;
-  }
-  
 
   .swiper {
-    width: 950px;
+    width: 524px;
   }
-  
- 
-  
-  /* footer styling */
-  .footer {
-    width: 100%;
-    color: #fff;
-    background: crimson;
-    position: sticky;
-    bottom: 0;
-    padding: 10px 10px 10px 30px;
-    height: 5vh;
-  }
-  
-  .footer a {
-    color: blue;
-  }
-  
-  /* media query for responsiveness */
-  @media (max-width: 760px) {
-    /* Add your media query styles here */
-  }
-  
 
-
-
-
-
-
-
-
-
-
-  /* <div class="card-content" style="border: 2px solid cyan;">
-                        <div class="image">
-                            <img src="../public/images/sandip06.png" alt="Loading" srcset="">
-                        </div>
-                        <div class="media-icon">
-                            <i class="fa-brands fa-square-facebook"></i>
-                            <i class="fa-brands fa-square-instagram"></i>
-                            <i class="fa-brands fa-square-twitter"></i>
-                        </div>
-                        <div class="name-div">
-                            <span class="name">Sandip Lakhore</span>
-                        </div>
-                        <div class="button">
-                            <button class="give-vote">VOTE</button>
-                        </div>
-                    </div> */
+}
