@@ -33,7 +33,7 @@ header{
 
 .relevent-page{
     display: flex;
-    background: url("../images/home-image2.jpg") no-repeat center ;
+    background: url("../images/vote.jpeg") no-repeat center ;
     height: 100vh;
     background-size: cover;
     background-attachment: fixed;
